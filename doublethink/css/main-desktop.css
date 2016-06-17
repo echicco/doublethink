@@ -1,0 +1,138 @@
+html, body {
+    margin: 30px;
+    background-color: #e3e5e3;
+}
+
+
+div.post-full {
+    /* Positioning */
+    clear: both;
+    margin-bottom: 25px;
+
+    /* Sizing */
+    width: 420px;
+    height: 100%;
+
+    /* Colors */
+    background-color: #fff;
+    border-bottom: 3px solid #cccccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+
+    /* Fonts */
+    font-family: sans-serif;
+}
+
+div.post-heading {
+    /* Sizing */
+    width: 100%;
+    height: 30px;
+
+    margin: 0 0 70px 0;
+
+    box-sizing: border-box;
+
+    /* Colors */
+    background-color: #000;
+    color: #ffffff;
+
+    /* Content */
+    text-align: right;
+    padding: 5px 10px 5px 5px;
+
+    /* Fonts */
+    font-variant: small-caps;
+}
+
+div.post-avatar {
+    /* Positioning */
+    position: relative;
+    left: 5px;
+    top: -15px;
+
+    /* Sizing */
+    box-sizing: border-box;
+
+    width: 80px;
+    height: 80px;
+
+    /* Colors */
+    background-color: #e3e5e3;
+    border: 2px solid #000;
+
+    background-size: cover;
+}
+
+div.post-author {
+    /* Positioning */
+    position: relative;
+    left: 83px;
+    top: -65px;
+
+    margin-left: 15px;
+
+    /* Sizing */
+    width: calc(100% - 83px);
+    height: 50px;
+
+    /* Colors */
+    color: #323232;
+
+    /* Fonts */
+    font-family: serif;
+
+    text-align: left;
+    font-variant: normal;
+
+    font-size: 28pt;
+}
+
+div.post-body {
+    /* Positioning */
+    margin: 0 0 0 0;
+    padding: 10px;
+
+    /* Sizing */
+    width: auto;
+    height: auto;
+
+    box-sizing: border-box;
+
+    /* Colors */
+    color: #323232;
+    background-color: #f3f3f3;
+
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+
+    /* Fonts */
+    font-family: "Rubik", sans-serif;
+    font-size: 11.5pt;
+    font-style: italic;
+    text-align: justify;
+
+    line-height: 18px;
+    letter-spacing: 0.7px;
+}
+
+div.post-footer {
+    /* Sizing */
+    height: 20px;
+    padding: 10px 10px 0 0;
+
+    /* Colors */
+    color: #d6d6d6;
+
+    /* Fonts */
+    font-family: sans-serif;
+
+    text-align: right;
+    font-variant: normal;
+
+    font-size: 12pt;
+    line-height: 100%;
+
+    /* Content */
+    overflow: hidden;
+}
