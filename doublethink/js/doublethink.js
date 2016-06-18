@@ -1,4 +1,6 @@
 var Doublethink = new function() {
+
+    /// The makePost function expects _all_ its arguments to be valid.
     this.makePost = function (category, author, avatar, content, date) {
         // post = Outer frame
         var post = $('<div class="post-full"></div>');

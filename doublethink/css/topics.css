@@ -1,3 +1,4 @@
+/* POLITICA */
 div.post-full.topic-politica > div.post-heading {
     background-color: hsl(120, 69%, 44%);
 }
@@ -10,6 +11,7 @@ div.post-full.topic-politica > div.post-heading > span.post-topic:after {
     content: "politica";
 }
 
+/* CHIESA */
 div.post-full.topic-chiesa > div.post-heading {
     background-color: hsl(58, 69%, 44%);
 }

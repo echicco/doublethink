@@ -90,11 +90,13 @@ div.post-author {
 
 div.post-body {
     /* Positioning */
+    position: relative;
+
     margin: 0 0 0 0;
     padding: 10px;
 
     /* Sizing */
-    width: auto;
+    width: 100%;
     height: auto;
 
     box-sizing: border-box;
