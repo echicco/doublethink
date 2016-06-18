@@ -3,53 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Doublethink</title>
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/main-desktop.css">
     <link rel="stylesheet" type="text/css" href="css/topics.css">
-
-    <link href='https://fonts.googleapis.com/css?family=Petit+Formal+Script' rel='stylesheet' type='text/css'>
+    <!-- Additional fonts -->
     <link href='https://fonts.googleapis.com/css?family=Rubik:400,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    <!-- JS libs -->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script src="js/doublethink.js"></script>
 </head>
 <body>
     <div id="navbar"></div>
 
     <div id="left-col">
-        <div class="post-full topic-politica">
-            <div class="post-heading">
-                &nbsp;<span class="post-topic"></span>
-                <div class="post-avatar">
 
-                </div>
-                <div class="post-author">
-                    Igor Baroslovnak
-                </div>
-            </div>
-            <div class="post-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div class="post-footer">
-                Posted by Kappa
-            </div>
-        </div>
-        <div class="post-full topic-chiesa">
-            <div class="post-heading">
-                &nbsp;<span class="post-topic"></span>
-                <div class="post-avatar">
-
-                </div>
-                <div class="post-author">
-                    Kevin Giovinazzo
-                </div>
-            </div>
-            <div class="post-body">
-                Dio è pedofilo
-            </div>
-            <div class="post-footer">
-                Posted by Kappa
-            </div>
-        </div>
     </div>
     <div id="right-col">
 
     </div>
+
+
+    <script>
+        var myPost = Doublethink.makePost('politica', 'Kevin Giovinazzo', 'https://scontent.xx.fbcdn.net/v/l/t1.0-9/13096140_594479124047932_3800282213437108589_n.jpg?oh=135e53245a06b47e00240e45d1b15f62&oe=57E64BFF', 'The .append() and .appendTo() methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With .append(), the selector expression preceding the method is the container into which the content is inserted. With .appendTo(), on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.', '18/06/16');
+        $('#left-col').append(myPost);
+    </script>
 </body>
 </html>
