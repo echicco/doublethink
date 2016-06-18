@@ -1,8 +1,13 @@
 html, body {
-    margin: 30px;
+    margin: 0;
     background-color: #e3e5e3;
+    height: 100%;
 }
 
+::selection {
+    background: #cccccc;
+    color: #ffffff;
+}
 
 div.post-full {
     /* Positioning */
@@ -10,8 +15,9 @@ div.post-full {
     margin-bottom: 25px;
 
     /* Sizing */
-    width: 420px;
-    height: 100%;
+    max-width: 420px;
+    width: 100%;
+    height: auto;
 
     /* Colors */
     background-color: #fff;
@@ -34,7 +40,7 @@ div.post-heading {
     box-sizing: border-box;
 
     /* Colors */
-    background-color: #000;
+    background-color: #cccccc;
     color: #ffffff;
 
     /* Content */
@@ -43,6 +49,10 @@ div.post-heading {
 
     /* Fonts */
     font-variant: small-caps;
+}
+
+span.post-topic:after {
+    content: 'non categorizzato';
 }
 
 div.post-avatar {
@@ -59,7 +69,7 @@ div.post-avatar {
 
     /* Colors */
     background-color: #e3e5e3;
-    border: 2px solid #000;
+    border: 2px solid #cccccc;
 
     background-size: cover;
 }
@@ -73,13 +83,15 @@ div.post-author {
     margin-left: 15px;
 
     /* Sizing */
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 50px;
 
     /* Colors */
     color: #323232;
 
     /* Fonts */
+    overflow: hidden;
     font-family: 'Playfair Display SC', serif;
 
     text-align: left;
@@ -137,4 +149,19 @@ div.post-footer {
 
     /* Content */
     overflow: hidden;
+}
+
+div#left-col {
+    width: 80%;
+    height: 100%;
+
+    float: left;
+}
+
+div#right-col {
+    background-color: #ccc;
+    height: 100%;
+    width: 20%;
+
+    float: right;
 }

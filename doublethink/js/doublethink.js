@@ -8,21 +8,17 @@ var Doublethink = new function() {
         post.addClass('topic-' + category);
 
         // post_heading = Upper part of the post, complete with avatar and name
-        var post_heading = $('<div class="post-heading"><span class="post-topic">&nbsp;</span>' +
-            '<div class="post-avatar"></div><div class="post-author"></div></div>');
+        var post_heading = $('<div class="post-heading"><span class="post-topic"></span>' +
+            '<div class="post-avatar"></div><div class="post-author">' + author + '</div></div>');
 
-        // Write the author's name and make it fit
-        post_heading.find('div.post-author').text(author);
         // Set the avatar
         post_heading.find('div.post-avatar').css('background-image', 'url("' + avatar + '")');
 
         // post_body = Middle part of the post, contains its main content
-        var post_body = $('<div class="post-body"></div>');
-        post_body.text(content);
+        var post_body = $('<div class="post-body">' + content + '</div>');
 
         // post_footer = Bottom part of the post, contains date of posting
-        var post_footer = $('<div class="post-footer"></div>');
-        post_footer.text(date);
+        var post_footer = $('<div class="post-footer">' + date + '</div>');
 
         post.append(post_heading);
         post.append(post_body);
