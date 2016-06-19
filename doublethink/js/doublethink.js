@@ -27,5 +27,9 @@ var Doublethink = new function() {
         return post;
     }
 
+    this.addPost = function(post) {
+        $('#left-col').append(post);
+    }
+
 };
 

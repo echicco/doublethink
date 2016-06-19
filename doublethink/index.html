@@ -24,8 +24,11 @@
     </div>
 
     <script>
-        var myPost = Doublethink.makePost('politica', 'Giovinazzo Kevin', 'https://scontent.xx.fbcdn.net/v/l/t1.0-9/13096140_594479124047932_3800282213437108589_n.jpg?oh=135e53245a06b47e00240e45d1b15f62&oe=57E64BFF', 'The .append() and .appendTo() methods perform the same task. The major difference is in ther expression preceding the method is the container into which the content is inserted. With .appendTo(), on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.', '18/06/16');
-        $('#left-col').append(myPost);
+        var myPostA = Doublethink.makePost('politica', 'Giovinazzo Kevin', 'https://scontent.xx.fbcdn.net/v/l/t1.0-9/13096140_594479124047932_3800282213437108589_n.jpg?oh=135e53245a06b47e00240e45d1b15f62&oe=57E64BFF', 'The .append() and .appendTo() methods perform the same task. The major difference is in ther expression preceding the method is the container into which the content is inserted. With .appendTo(), on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.', '18/06/16');
+        var myPostB = Doublethink.makePost('chiesa', 'Baroslovnak Igor', 'https://scontent.xx.fbcdn.net/v/t1.0-0/p206x206/12508949_546274492201729_8505905026087041081_n.jpg?oh=5d8194de716eff6c7f1cd051514db0e3&oe=57D11C86', 'Memes', '18/06/16');
+
+        Doublethink.addPost(myPostA);
+        Doublethink.addPost(myPostB);
     </script>
 </body>
 </html>

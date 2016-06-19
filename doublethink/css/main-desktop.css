@@ -71,6 +71,7 @@ div.post-avatar {
     border: 2px solid #cccccc;
 
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.post-author {
@@ -101,6 +102,51 @@ div.post-author {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis
+}
+
+@media only screen and (max-width: 400px) {
+    div.post-avatar {
+        /* Positioning */
+        left: -5px;
+        top: 7px;
+
+        /* Sizing */
+        box-sizing: border-box;
+
+        width: calc(100% + 15px);
+        height: 70px;
+
+        /* Colors */
+        border: none;
+
+        background-size: 100%;
+        background-position: center;
+    }
+
+    div.post-author {
+        /* Positioning */
+        left: -5px;
+        top: -63px;
+        margin-left: 0;
+
+        /* Sizing */
+        width: calc(100% + 15px);
+        max-width: none;
+        height: 70px;
+
+        /* Colors */
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #ffffff;
+
+
+        /* Fonts */
+        font-family: "Rubik", sans-serif;
+        line-height: 70px;
+        text-align: center;
+        font-size: 18pt;
+        text-shadow: 1px 1px 1px #323232;
+
+    }
 }
 
 div.post-body {
