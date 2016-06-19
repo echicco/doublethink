@@ -21,10 +21,9 @@ div.post-full {
 
     /* Colors */
     background-color: #fff;
-    border-bottom: 3px solid #cccccc;
+    border-bottom: 5px solid #cccccc;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-
 
     /* Fonts */
     font-family: sans-serif;
@@ -83,7 +82,7 @@ div.post-author {
     margin-left: 15px;
 
     /* Sizing */
-    width: 100%;
+    width: calc(100% - 83px - 15px);
     max-width: 300px;
     height: 50px;
 
@@ -91,13 +90,17 @@ div.post-author {
     color: #323232;
 
     /* Fonts */
-    overflow: hidden;
     font-family: 'Playfair Display SC', serif;
 
     text-align: left;
     font-variant: normal;
 
     font-size: 24pt;
+
+    /* Content */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
 }
 
 div.post-body {
@@ -152,16 +155,22 @@ div.post-footer {
 }
 
 div#left-col {
+    /* Positioning */
+    float: left;
+
+    /* Sizing */
     width: 80%;
     height: 100%;
-
-    float: left;
 }
 
 div#right-col {
-    background-color: #ccc;
+    /* Positioning */
+    float: right;
+
+    /* Sizing */
     height: 100%;
     width: 20%;
 
-    float: right;
+    /* Colors */
+    background-color: #ccc;
 }
