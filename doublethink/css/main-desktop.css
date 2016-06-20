@@ -1,5 +1,5 @@
 html, body {
-    margin: 10px;
+    margin: 0;
     background-color: #e3e5e3;
     height: 100%;
 }
@@ -198,6 +198,10 @@ div.post-footer {
 
     /* Content */
     overflow: hidden;
+}
+
+div#header {
+    
 }
 
 div#left-col {

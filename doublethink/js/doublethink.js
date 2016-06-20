@@ -1,14 +1,25 @@
 var Doublethink = new function() {
 
+    this._sendFetchRequest = function(data, success) {
+        // Makes a POST request to get_posts.php with the necessary data and calls "success" with the parsed response
+        var _this = this;
+        $.post('get_posts.php', data, function(response) {
+            obj = JSON.parse(response);
+            if(obj.hasOwnProperty('error')) {
+                _this.notifyUser('error', obj.error)
+            }
+            else {
+                success(obj);
+            }
+        });
+    };
+
     /// The fetchPostData() function expects a number and a callback function
     /// postID: The ID of the post to fetch data for
     /// success: The callback function which will be called with a key-value object representing a post as only parameter
     /// returns: nothing
     this.fetchPostData = function(postID, success) {
-        // Ask the server to fetch the required data of a post the id of which is postID
-        $.post('get_posts.php', { action: 'fetch-post-data', id: postID }, function(response) {
-            success(JSON.parse(response));
-        });
+        this._sendFetchRequest( { action: 'fetch-post-data', id: postID }, success );
     };
 
     /// The fetchLatestPostIDs() function expects a number and a callback function.
@@ -16,10 +27,7 @@ var Doublethink = new function() {
     /// success: The callback function which will be called with an array of IDs as only parameter
     /// returns: nothing
     this.fetchLatestPostIDs = function(num, success) {
-        // Ask the server to return a list of size num containing the latest post IDs
-        $.post('get_posts.php', { action: 'fetch-id-list', num: num }, function(response) {
-            success(JSON.parse(response));
-        });
+        this._sendFetchRequest( { action: 'fetch-id-list', num: num }, success );
     };
 
     /// The createPost() function expects _all_ its arguments to be valid.
@@ -54,6 +62,20 @@ var Doublethink = new function() {
     /// returns: nothing
     this.appendPost = function(dom_element) {
         $('#left-col').append(dom_element);
+    };
+
+    this.notifyUser = function(notification_type, message) {
+        switch(notification_type) {
+            case 'error':
+            case 'success':
+            case 'info':
+                var notice = $('<div class="notice ' + notification_type + '">' + message + '</div>');
+                $('#left-col').append(notice);
+                break;
+            default:
+                throw "Invalid notification type!";
+                break;
+        }
     };
 
 };
