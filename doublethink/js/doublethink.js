@@ -25,11 +25,11 @@ var Doublethink = new function() {
         post.append(post_footer);
 
         return post;
-    }
+    };
 
     this.addPost = function(post) {
         $('#left-col').append(post);
-    }
+    };
 
 };
 
