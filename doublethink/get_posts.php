@@ -19,6 +19,10 @@ function fetch_post_data($id) {
     return $post;
 }
 
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
+    exit;
+}
+
 $action = $_POST['action'];
 $response = null;
 switch($action) {

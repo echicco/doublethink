@@ -61,7 +61,7 @@ var Doublethink = new function() {
     /// The appendPost() function expects an element created via createPost() and appends it to the feed
     /// returns: nothing
     this.appendPost = function(dom_element) {
-        $('#left-col').append(dom_element);
+        $('#post-wrapper').prepend(dom_element);
     };
 
     this.notifyUser = function(notification_type, message) {

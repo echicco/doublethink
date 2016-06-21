@@ -17,21 +17,28 @@
     <header></header>
     <nav></nav>
 
-    <section id="left-col">
-        <noscript>
-            <span class="notice error">Questo sito necessita che Javascript sia abilitato per poter funzionare.</span>
-        </noscript>
-    </section>
+    <div id="main-wrapper">
+        <section id="left-col">
+            <noscript>
+                <span class="notice error">Questo sito necessita che Javascript sia abilitato per poter funzionare.</span>
+            </noscript>
+            <div id="post-wrapper">
 
-    <aside id="right-col">
+            </div>
+        </section>
 
-    </aside>
+        <aside id="right-col">
+            <button onclick="meme()">click meme</button>
+        </aside>
+    </div>
 
     <footer></footer>
     <script>
-        Doublethink.fetchPostData(1, function(post) {
-            Doublethink.appendPost(Doublethink.createPost(post));
-        });
+        function meme() {
+            Doublethink.fetchPostData(1, function(post) {
+                Doublethink.appendPost(Doublethink.createPost(post));
+            });
+        }
     </script>
 </body>
 </html>

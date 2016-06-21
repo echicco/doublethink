@@ -9,13 +9,23 @@ html, body {
     color: #ffffff;
 }
 
+@keyframes anim-post-fadein {
+    from { opacity: 0; width: 0; }
+    to { opacity: 1; width: 100%; }
+}
+
 div.post-full {
+    /* Animations */
+    animation: anim-post-fadein 0.3s;
+
     /* Positioning */
-    clear: both;
+    display: block;
     margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
 
     /* Sizing */
-    max-width: 420px;
+    max-width: 540px;
     width: 100%;
     height: auto;
 
@@ -104,51 +114,6 @@ div.post-author {
     text-overflow: ellipsis
 }
 
-@media only screen and (max-width: 400px) {
-    div.post-avatar {
-        /* Positioning */
-        left: -5px;
-        top: 7px;
-
-        /* Sizing */
-        box-sizing: border-box;
-
-        width: calc(100% + 15px);
-        height: 70px;
-
-        /* Colors */
-        border: none;
-
-        background-size: 100%;
-        background-position: center;
-    }
-
-    div.post-author {
-        /* Positioning */
-        left: -5px;
-        top: -63px;
-        margin-left: 0;
-
-        /* Sizing */
-        width: calc(100% + 15px);
-        max-width: none;
-        height: 70px;
-
-        /* Colors */
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #ffffff;
-
-
-        /* Fonts */
-        font-family: "Rubik", sans-serif;
-        line-height: 70px;
-        text-align: center;
-        font-size: 18pt;
-        text-shadow: 1px 1px 1px #323232;
-
-    }
-}
-
 div.post-body {
     /* Positioning */
     position: relative;
@@ -202,37 +167,87 @@ div.post-footer {
 
 
 header {
+    /* Sizing */
     width: 100%;
-    background-color: #22a1c1;
+    height: 60px;
+
+    /* Colors */
+    background-color: #22c122;
 }
 
 nav {
-    
+    /* Sizing */
+    width: 100%;
+    height: 40px;
+
+    /* Colors */
+    background-color: #22a1c1;
+}
+
+div#main-wrapper {
+    /* Sizing */
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100% - 60px - 40px - 60px); /* 100% - header - navbar - footer */
+
+    /* Content */
+    padding-left: 15%;
+    padding-right: 15%;
+
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 section#left-col {
     /* Positioning */
-    float: left;
+    flex: 1 1 calc(100% - 300px);
 
     /* Sizing */
-    width: 80%;
-    height: 100%;
+    width: calc(100% - 300px);
+    min-height: 100%;
+    box-sizing: border-box;
+
+    /* Content */
+    text-align: center;
+
+    /* Colors */
+    background-color: #d6d6d6;
+
+}
+
+div#post-wrapper {
+    /* Positioning */
+    display: inline-block;
+
+    /* Sizing */
+    box-sizing: border-box;
+    max-width: 600px;
+    width: 100%;
+
+    /* Content */
+    padding: 40px 20px 0 20px;
+
 }
 
 aside#right-col {
     /* Positioning */
-    float: right;
+    flex: 1 1 300px;
 
     /* Sizing */
-    height: 100%;
-    width: 20%;
+    min-height: 100%;
+    width: 300px;
 
     /* Colors */
     background-color: #ccc;
 }
 
 footer {
+    /* Sizing */
+    width: 100%;
+    height: 60px;
 
+    /* Colors */
+    background-color: #c12222;
 }
 
 /* Misc. classes */
@@ -263,4 +278,59 @@ footer {
 
 .notice.info {
     background-color: #22a1c1;
+}
+
+@media only screen and (max-width: 1050px) {
+    aside#right-col {
+        display: none;
+    }
+
+    section#left-col {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    div.post-avatar {
+        /* Positioning */
+        left: -5px;
+        top: 7px;
+
+        /* Sizing */
+        box-sizing: border-box;
+
+        width: calc(100% + 15px);
+        height: 70px;
+
+        /* Colors */
+        border: none;
+
+        background-size: 100%;
+        background-position: center;
+    }
+
+    div.post-author {
+        /* Positioning */
+        left: -5px;
+        top: -63px;
+        margin-left: 0;
+
+        /* Sizing */
+        width: calc(100% + 15px);
+        max-width: none;
+        height: 70px;
+
+        /* Colors */
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #ffffff;
+
+
+        /* Fonts */
+        font-family: "Rubik", sans-serif;
+        line-height: 70px;
+        text-align: center;
+        font-size: 18pt;
+        text-shadow: 1px 1px 1px #323232;
+
+    }
 }
