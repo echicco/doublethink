@@ -14,16 +14,20 @@
     <script src="js/doublethink.js"></script>
 </head>
 <body>
-    <div id="header"></div  >
+    <header></header>
+    <nav></nav>
 
-    <div id="left-col">
+    <section id="left-col">
         <noscript>
             <span class="notice error">Questo sito necessita che Javascript sia abilitato per poter funzionare.</span>
         </noscript>
-    </div>
-    <div id="right-col">
+    </section>
 
-    </div>
+    <aside id="right-col">
+
+    </aside>
+
+    <footer></footer>
     <script>
         Doublethink.fetchPostData(1, function(post) {
             Doublethink.appendPost(Doublethink.createPost(post));

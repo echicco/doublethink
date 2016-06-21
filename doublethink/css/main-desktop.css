@@ -200,11 +200,17 @@ div.post-footer {
     overflow: hidden;
 }
 
-div#header {
+
+header {
+    width: 100%;
+    background-color: #22a1c1;
+}
+
+nav {
     
 }
 
-div#left-col {
+section#left-col {
     /* Positioning */
     float: left;
 
@@ -213,7 +219,7 @@ div#left-col {
     height: 100%;
 }
 
-div#right-col {
+aside#right-col {
     /* Positioning */
     float: right;
 
@@ -223,6 +229,10 @@ div#right-col {
 
     /* Colors */
     background-color: #ccc;
+}
+
+footer {
+
 }
 
 /* Misc. classes */
