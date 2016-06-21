@@ -27,7 +27,7 @@ var Doublethink = new function() {
     /// success: The callback function which will be called with an array of IDs as only parameter
     /// returns: nothing
     this.fetchLatestPostIDs = function(num, success) {
-        this._sendFetchRequest( { action: 'fetch-id-list', num: num }, success );
+        this._sendFetchRequest( { action: 'fetch-id-list', limit: num }, success );
     };
 
     /// The createPost() function expects _all_ its arguments to be valid.

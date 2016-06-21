@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Rubik:400,300italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
     <!-- JS libs -->
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/doublethink.js"></script>
 </head>
 <body>
@@ -25,6 +25,9 @@
 
     </div>
     <script>
+        Doublethink.fetchPostData(1, function(post) {
+            Doublethink.appendPost(Doublethink.createPost(post));
+        });
     </script>
 </body>
 </html>
