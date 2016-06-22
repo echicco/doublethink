@@ -26,6 +26,10 @@ function fetch_post_data($conn, $id) {
     return array('error' => 'Unknown post ID');
 }
 
+function output_json($response) {
+    echo json_encode($response);
+}
+
 // Skip non-POST requests since this page should only be used to deliver JSON
 if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST') {
     exit;
@@ -34,9 +38,16 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST') {
 $conn = new mysqli("localhost", "root", "", "doublethink");
 if($conn->connect_error) {
     $response = array('error' => 'Unable to connect to the database.');
-    echo json_encode($response);
+    output_json($response);
     exit;
 }
+if (!$conn->set_charset("utf8")) {
+    $response = array('error' => 'Unable to set UTF-8 charset for the database.');
+    output_json($response);
+    exit;
+}
+
+$conn->set_charset('utf-8');
 
 $action = $_POST['action'];
 $response = null;
@@ -57,6 +68,6 @@ switch($action) {
         break;
 }
 
-echo json_encode($response);
+output_json($response);
 $conn->close();
 ?>
