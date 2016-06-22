@@ -28,17 +28,22 @@
         </section>
 
         <aside id="right-col">
-            <button onclick="meme()">click meme</button>
         </aside>
     </div>
 
     <footer></footer>
     <script>
-        function meme() {
-            Doublethink.fetchPostData(1, function(post) {
-                Doublethink.appendPost(Doublethink.createPost(post));
+        function preloadPosts(limit) {
+            Doublethink.fetchLatestPostIDs(limit, function(ids) {
+                Doublethink.fetchPosts(ids, function(posts) {
+                    for(post of posts) {
+                        Doublethink.appendPost(Doublethink.createPost(post));
+                    }
+                });
             });
         }
+
+        preloadPosts(10);
     </script>
 </body>
 </html>

@@ -14,12 +14,12 @@ var Doublethink = new function() {
         });
     };
 
-    /// The fetchPostData() function expects a number and a callback function
-    /// postID: The ID of the post to fetch data for
+    /// The fetchPosts() function expects a number and a callback function
+    /// postIDs: The IDs of the posts to fetch data for
     /// success: The callback function which will be called with a key-value object representing a post as only parameter
     /// returns: nothing
-    this.fetchPostData = function(postID, success) {
-        this._sendFetchRequest( { action: 'fetch-post-data', id: postID }, success );
+    this.fetchPosts = function(postIDs, success) {
+        this._sendFetchRequest( { action: 'fetch-post-data', ids: postIDs }, success );
     };
 
     /// The fetchLatestPostIDs() function expects a number and a callback function.
@@ -61,7 +61,7 @@ var Doublethink = new function() {
     /// The appendPost() function expects an element created via createPost() and appends it to the feed
     /// returns: nothing
     this.appendPost = function(dom_element) {
-        $('#post-wrapper').prepend(dom_element);
+        $('#post-wrapper').append(dom_element);
     };
 
     this.notifyUser = function(notification_type, message) {
