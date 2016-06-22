@@ -34,7 +34,7 @@ var Doublethink = new function() {
     /// returns: A constructed "Post" DOM element
     this.createPost = function (data) {
         // post = Outer frame
-        var post = $('<div class="post-full"></div>');
+        var post = $('<div class="post-full id-' + data.id + '"></div>');
         // Topics change the accent of each post
         post.addClass('topic-' + data.topic);
 
