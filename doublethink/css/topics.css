@@ -23,3 +23,16 @@ div.post-full.topic-chiesa > div.post-heading > div.post-avatar {
 div.post-full.topic-chiesa > div.post-heading > span.post-topic:after {
     content: "chiesa";
 }
+
+/* MEMES */
+div.post-full.topic-memes > div.post-heading {
+    background-color: hsl(0, 69%, 44%);
+}
+
+div.post-full.topic-memes > div.post-heading > div.post-avatar {
+    border-color: hsl(0, 69%, 44%);
+}
+
+div.post-full.topic-memes > div.post-heading > span.post-topic:after {
+    content: "memes";
+}
