@@ -1,9 +1,14 @@
 <?php
-function fetch_id_list($conn, $limit) {
-    $list = array();
+define("FETCH_ID_LIST_MAX_LIMIT", 30);
+define("FETCH_ID_LIST_DEFAULT_LIMIT", 10);
 
-    $statement = $conn->prepare("SELECT id FROM posts ORDER BY id DESC LIMIT ?");
-    $statement->bind_param('i', $limit);
+function fetch_id_list($conn, $limit, $filter_author, $filter_topic) {
+    $list = array();
+    // Limit the limit (duh!) to a reasonable number to prevent queries from becoming too expensive
+    $limit = min($limit, FETCH_ID_LIST_MAX_LIMIT);
+
+    $statement = $conn->prepare("SELECT id FROM posts WHERE author = COALESCE( ? , author) AND topic = COALESCE( ? , topic) ORDER BY id DESC LIMIT ?");
+    $statement->bind_param('ssi', $filter_author, $filter_topic, $limit);
     $statement->execute();
 
     $res = $statement->get_result();
@@ -35,6 +40,11 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST') {
     exit;
 }
 
+// Ignore any request that doesn't have an 'action' parameter
+if(!isset($_POST['action'])) {
+    exit;
+}
+
 $conn = new mysqli("localhost", "root", "", "doublethink");
 if($conn->connect_error) {
     $response = array('error' => 'Unable to connect to the database.');
@@ -47,16 +57,32 @@ if (!$conn->set_charset("utf8")) {
     exit;
 }
 
-$conn->set_charset('utf-8');
-
 $action = $_POST['action'];
 $response = null;
 switch($action) {
     case 'fetch-id-list':
-        $limit = $_POST['limit'];
-        $response = fetch_id_list($conn, $limit);
+        $limit = FETCH_ID_LIST_DEFAULT_LIMIT;
+        if(isset($_POST['limit'])) {
+            $limit = $_POST['limit'];
+        }
+
+        $filter_author = null;
+        $filter_topic = null;   
+
+        if(isset($_POST['author'])) {
+            $filter_author = $_POST['author'];
+        }
+        if(isset($_POST['topic'])) {
+            $filter_topic = $_POST['topic'];
+        }
+
+        $response = fetch_id_list($conn, $limit, $filter_author, $filter_topic);
         break;
     case 'fetch-post-data':
+        if(!isset($_POST['ids'])) {
+            break;
+        }
+
         $ids = $_POST['ids'];
         $response = array();
         foreach ($ids as $id) {

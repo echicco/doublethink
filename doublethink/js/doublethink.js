@@ -4,7 +4,13 @@ var Doublethink = new function() {
         // Makes a POST request to get_posts.php with the necessary data and calls "success" with the parsed response
         var _this = this;
         $.post('./app/get_posts.php', data, function(response) {
-            obj = JSON.parse(response);
+            try {
+                obj = JSON.parse(response);
+            }
+            catch(SyntaxError) {
+                _this.notifyUser('error', "Invalid JSON response from server.");
+                return;
+            }
             if(obj.hasOwnProperty('error')) {
                 _this.notifyUser('error', obj.error)
             }
@@ -28,6 +34,28 @@ var Doublethink = new function() {
     /// returns: nothing
     this.fetchLatestPostIDs = function(num, success) {
         this._sendFetchRequest( { action: 'fetch-id-list', limit: num }, success );
+    };
+
+    /// The fetchFilteredPostIDs() function expects a number, two strings and a callback function.
+    /// num: The number of post IDs to fetch
+    /// author: The author's name to filter for
+    /// topic: The post topic to filter for
+    /// success: The callback function which will be called with an array of IDs as only parameter
+    /// returns: nothing
+    this.fetchFilteredPostIDs = function(num, author, topic, success) {
+        data = {
+            action: 'fetch-id-list',
+            limit: num
+        };
+
+        if(author) {
+            data.author = author;
+        }
+        if(topic) {
+            data.topic = topic;
+        }
+
+        this._sendFetchRequest( data, success );
     };
 
     /// The createPost() function expects _all_ its arguments to be valid.
@@ -79,4 +107,3 @@ var Doublethink = new function() {
     };
 
 };
-

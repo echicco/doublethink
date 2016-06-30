@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gelfavps</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+    <form onsubmit="getfavs(); return false;">
+        <input title="Favourites URL" type="number" id="favs-url" value="166381">
+        <input type="submit" value="Get URLs">
+    </form>
+    <input type="button" value="Update DB" onclick="updatedb()">
+
+    <table id="favourites" border="1">
+        <tr>
+           <td>URL</td>
+           <td>Tags</td>
+        </tr>
+    </table>
+
+    <script>
+        obj_tags = [];
+        function getImageTags(url, td) {
+            $.get('echo.php', {url: url}).done(function(response) {
+                dom = $(response);
+                tags = dom.find('#tag-sidebar>li>a');
+                totals = dom.find('#tag-sidebar>li>span');
+                text = '';
+
+                for(var i = 1; i < tags.length; i += 2) {
+                    t = tags[i].innerText;
+                    text += t + ',';
+
+                    text = text.substring(0, text.length - 1);
+                    td.text(text);
+
+                    found = false;
+                    for(var j = 0; j < obj_tags.length; ++j) {
+                        if(obj_tags[j].name == t) {
+                            obj_tags[j].local++;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found) {
+                        ot = {
+                            name: t,
+                            local: 1,
+                            total: totals[(i - 1) / 2].innerText
+                        };
+                        obj_tags.push(ot);
+                    }
+                }
+            });
+        }
+
+        function scrapeImageURLs(dom) {
+            pics = dom.filter('.thumb');
+            tbl = $('#favourites');
+            $.each(pics, function(i, e) {
+                url = 'http://gelbooru.com/' + $(e).find('a').first().attr('href');
+                tr = $('<tr><td>' + url + '</td><td></td></tr>');
+                tbl.append(tr);
+                getImageTags(url, tr.find('td').last());
+            });
+        }
+
+        function getfavs() {
+            var id = $('#favs-url')[0].value;
+            var url = 'http://gelbooru.com/index.php?page=favorites&s=view&id=' + id;
+
+            // PID = 0
+            $.get('echo.php', {url: url}).done(function(data){
+                var dom = $(data);
+                scrapeImageURLs(dom);
+
+                var paginator_last = dom.filter('#paginator').find('a').last().attr('href');
+                var last_pid = paginator_last.substring(paginator_last.lastIndexOf('pid=') + 4);
+
+                for(var pid = 50; pid <= parseInt(last_pid); pid += 50) {
+                    $.get('echo.php', {url: url + '&pid=' + pid}).done(function(response) {
+                       scrapeImageURLs($(response));
+                    });
+                }
+            });
+        }
+
+        function updatedb() {
+            $.post('updatedb.php', {data: JSON.stringify(obj_tags)}).done(function(response) {
+                console.log(response);
+            });
+        }
+    </script>
+</body>
+</html>
