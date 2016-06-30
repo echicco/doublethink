@@ -1,0 +1,7 @@
+AddType application/x-httpd-php .html .htm
+
+RewriteEngine On
+# Check for mime types commonly accepted by mobile devices
+RewriteCond %{HTTP_ACCEPT} "text\/vnd\.wap\.wml|application\/vnd\.wap\.xhtml\+xml" [NC]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ http://127.0.0.1/doublethink/doublethink/mobile/%{REQUEST_URI} [R,L]
