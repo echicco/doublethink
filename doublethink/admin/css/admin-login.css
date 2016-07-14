@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#page-login {
+    background: #f8f8f8;
+    text-align: center;
+}
+body {
+    background: #e6e6e6;
+    color: #2f2f2f;
+    font: 12px/1.5em Arial, Helvetica, sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 581px;
+    margin: 170px auto;
+    padding-left: 32px;
+    background: url(images/login_logo.gif) no-repeat;
+}
+
+form {
+    display: inline;
+}
+
+.login-form {
+    padding: 27px 57px 35px 57px;
+    background: url(images/login_box_bg.jpg) no-repeat;
+    text-align: left;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+.login-form h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+.login-form .input-left {
+    float: left;
+}
+
+.login-form .input-right {
+    float: right;
+}
+
+.login-form .form-buttons {
+    margin: 12px 0 0 0;
+    clear: both;
+    text-align: right;
+}
+
+.login-container .legal {
+    margin: 0;
+    background: url(images/login_box_legal_bg.gif) no-repeat;
+    padding: 8px 8px 5px 8px;
+    font-size: .95em;
+}
+
+.login-box .bottom {
+    width: 581px;
+    height: 5px;
+    background: url(images/login_box_bottom.jpg) no-repeat;
+    overflow: hidden;
+}
+
+.login-form .input-box input.input-text {
+    width: 224px;
+}
+input.input-text, textarea {
+    padding: 2px;
+}
+input.input-text, textarea, select {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #aaa #c8c8c8 #c8c8c8 #aaa;
+    background: #fff;
+    font: 12px arial, helvetica, sans-serif;
+}
+.no-display {
+    display: none;
+}
+input, select {
+    vertical-align: middle;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.f-left, .left {
+    float: left;
+}
+a {
+    color: #ea7601;
+    text-decoration: underline;
+}
+* {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,164 @@
+html, body {
+    margin: 0;
+    background-color: #e3e5e3;
+    height: 100%;
+    color: #2f2f2f;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    width: 100%;
+    line-height: 30px;
+
+    font-family: sans-serif;
+    text-align: center;
+}
+
+div{
+    display: block;
+}
+
+p{
+    display: block;
+}
+
+#page-login{
+    text-align: center;
+}
+
+.login-container {
+    width: 581px;
+    margin: 170px auto;
+    padding-left: 32px;
+}
+
+form{
+    display: inline;
+}
+
+.login-form {
+    padding: 27px 57px 35px 57px;
+    text-align: left;
+}
+
+.login-form .input-left {
+    float: left;
+}
+
+.login-form .input-right {
+    float: right;
+}
+
+.login-form .form-buttons {
+    margin: 12px 0 0 0;
+    clear: both;
+    text-align: right;
+}
+
+.login-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form .input-box input.input-text {
+    width: 224px;
+}
+
+input.input-text, textarea {
+    padding: 2px;
+}
+input.input-text, textarea, select {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #aaa #c8c8c8 #c8c8c8 #aaa;
+    background: #fff;
+    font: 12px arial, helvetica, sans-serif;
+}
+
+.header{
+    background-color: grey;
+    text-align: right;
+    margin: 0;
+}
+
+.header-right{
+    padding: 10px 25px 0 15px;
+    display: inline-block;
+}
+
+.header-right .login-data{
+    float: right;
+}
+
+.middle{
+    min-height: 850px;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    margin: 0;
+}
+
+.footer{
+    background-color: grey;
+    text-align:left;
+    margin-bottom:0;
+    display:inline-block;
+}
+
+#form {
+    width: 500px;
+    margin: 50px auto;
+    background: #222;
+    padding: 25px;
+    overflow: hidden;
+
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 16px;
+    color: #FCCC69;
+    margin-bottom: 20px;
+}
+
+label, input, textarea, select { /* Stili comuni agli elementi del form */
+    color: #dedede; /* Colore del testo */
+    float: left; /* Float a sinistra */
+    font-family: Verdana, sans-serif; /* Tipo di carattere per il testo */
+    margin: 8px 0; /* Margini */
+}
+
+label { /* Stili per la label */
+    display: block; /* Impostiamo la label come elemento blocco */
+    line-height: 30px; /* Altezza di riga */
+    width: 150px; /* Larghezza */
+}
+
+input, textarea, select { /* Stili per il campo di testo e per la textarea */
+    background: #1C1C1C; /* Colore di sfondo */
+    border: 1px solid #323232; /* Bordo */
+    color: #fff; /* Colore del testo */
+    height: 30px; /* Altezza */
+    line-height: 30px; /* Altezza di riga */
+    width: 300px; /* Larghezza */
+    padding: 0 10px; /* Padding */
+}
+
+input {
+    padding-left: 30px;
+}
+
+textarea { /* Stili specifici per la teaxtarea */
+    font-size: 12px;
+    height: 200px;
+    width: 320px;
+    overflow: hidden; /* disabilitare la scrollbar in IE */
+}
+
+#login{
+    width: 500px;
+    margin: auto;
+    padding: 25px;
+    overflow: hidden;
+}

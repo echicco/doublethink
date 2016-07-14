@@ -70,4 +70,20 @@ switch($action) {
 
 output_json($response);
 $conn->close();
+
+function filter_by($conn, $limit) {
+    $list = array();
+
+    $statement = $conn->prepare("SELECT id FROM posts WHERE author='Test' ORDER BY id DESC LIMIT ?");
+    $statement->bind_param('i', $limit);
+    $statement->execute();
+
+    $res = $statement->get_result();
+    while($row = $res->fetch_row()) {
+        array_push($list, $row[0]);
+    }
+
+    return $list;
+
+}
 ?>

@@ -79,4 +79,3 @@ var Doublethink = new function() {
     };
 
 };
-

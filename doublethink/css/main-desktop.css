@@ -349,3 +349,17 @@ footer {
         /*max-width: 100%;*/
     /*}*/
 }
+
+input, textarea, select { /* Stili per il campo di testo e per la textarea */
+    background: #d9d9d9; /* Colore di sfondo */
+    border: 1px #323232; /* Bordo */
+    color: #323232; /* Colore del testo */
+    height: 35px; /* Altezza */
+    width: 250px; /* Larghezza */
+    padding: 0 0; /* Padding */
+    margin: 10px;
+}
+
+input {
+    padding-left: 30px;
+}
